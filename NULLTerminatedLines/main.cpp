@@ -396,10 +396,10 @@ char* dec_to_hex(int decimal)
 
 bool is_mac_address(char str[])
 {
+		if(StringLength(str)!=17)return false;
+
 	for (int i = 0; str[i]; i++)
 	{
-
-		if(StringLength(str)!=17)return false;
 		if (str[i] >= '\0' && str[i] <= ',' ||
 			str[i] >= ';' && str[i] <= '@' ||
 			str[i] >= 'G' && str[i] <= 96 ||
@@ -412,17 +412,6 @@ bool is_mac_address(char str[])
 
 bool is_ip_address(char str[])
 {
-	/*int size = StringLength(str);
-	for (int i = 0; str[i]; i++)
-	{
-
-		if (StringLength(str) != 17)return false;
-		if (str[i] >= '\0' && str[i] <= ',' ||
-			str[i] >= ';' && str[i] <= '@' ||
-			str[i] >= 'G' && str[i] <= 96 ||
-			str[i] >= 'g' && str[i] <= 'я' ||
-			str[i] == '/')
-			return false;
-	}
-	return true;*/
+	
+	return true;
 }
