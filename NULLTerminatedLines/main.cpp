@@ -75,17 +75,17 @@ void main()
 
 	//cout << is_bin_number(str) << endl;
 
-	/*int decimal;
+	int decimal;
 	cout << "Введите десятичное число: "; cin >> decimal;
-	cout << decimal << "(dec) = " << dec_to_bin(decimal) << "(bin)" << endl;*/
+	cout << decimal << "(dec) = " << dec_to_bin(decimal) << "(bin)" << endl;
 
-	//cout << str << "(bin) = " << bin_to_dec(str) << "(dec)\n";
+	/*cout << str << "(bin) = " << bin_to_dec(str) << "(dec)\n";
 	char str[n];
-	cout << "Введите строку: ";
+	cout << "Введите строку: ";*/
 	//cin >> str1;
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	cin.getline(str, n);//CP1251
+	//cin.getline(str, n);//CP1251
 	//cout << str << endl;//CP866
 
 	//	//cout << str << "(bin) = " << bin_to_dec(str) << "(dec)\n";
@@ -93,9 +93,10 @@ void main()
 	//cout << "Строка " << str << (is_hex_number(str) ? "" : " НЕ") << " является шестнадцатеричным числом" << endl;
 	//cout << str << "(hex) = " << hex_to_dec(str) << "(dec)\n";
 	//int decimal = hex_to_dec(str);
+	//int decimal=5555;
 	//cout << decimal << "(dec) = " << dec_to_hex(decimal) << "(hex)\n";
-	cout << StringLength(str) << endl;
-	cout << "Строка " << str << (is_mac_address(str) ? "" : " НЕ") << " является MAC адресом" << endl;	
+	//cout << StringLength(str) << endl;
+	//cout << "Строка " << str << (is_mac_address(str) ? "" : " НЕ") << " является MAC адресом" << endl;	
 }
 
 void ASCII()
@@ -273,22 +274,18 @@ bool is_bin_number(char str[])
 	return true;
 }
 
-char* dec_to_bin(int decimal)
-{
-	//1) Определим количество двоичных разрядов:
-	int capacity = 0;
+char* dec_to_bin(int decimal)  
+{	
+	int capacity = 0;  //1) Определим количество двоичных разрядов:
 	int buffer = decimal;
 	for (; buffer > 0; capacity++)
 	{
-		buffer /= 2;
-		//if (capacity % 4 == 0)capacity++;
+		buffer /= 2;		
 	}
-	capacity += (capacity - 1) / 4;
-	//2) Выделяем память под двоичное число:
-	char* bin = new char[capacity + 1]{};
-	//3) Получаем разряды двоичного числа, и сохраняем их в строку:
+	capacity += (capacity - 1) / 4;	
+	char* bin = new char[capacity + 1]{}; //2) Выделяем память под двоичное число:	
 	bin[capacity] = '\0';
-	for (int i = capacity - 1; decimal; i--)
+	for (int i = capacity - 1; decimal; i--) //3) Получаем разряды двоичного числа, и сохраняем их в строку:
 	{	
 		if ((i + 1) % 5 == 0)
 		{
