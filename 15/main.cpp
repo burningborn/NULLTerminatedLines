@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 #include<conio.h>
 using namespace std;
 
@@ -22,7 +22,7 @@ void main()
 	//string field[n] = { "13","14","  ","15"," 9","10","11","12"," 5"," 6"," 7"," 8"," 1"," 2"," 3"," 4" };
 
 	PrintField(field);
-	cout << "Åù¸ ðàçî÷åê? (y/n): " << endl;
+	cout << "Ð•Ñ‰Ñ‘ Ñ€Ð°Ð·Ð¾Ñ‡ÐµÐº? (y/n): " << endl;
 	if (_getch() == 'y')main();
 }
 
@@ -31,7 +31,7 @@ void PrintField(string field[])
 {
 	system("CLS");
 
-	cout << "\n\t\t" << " Äëÿ óïðàâëåíèÿ èñïîëüçóéòå NumPad: " << " 2  -  Up " << " 4  -  Left " << " 6  -  Right " << " 8  -  Down \n";
+	cout << "\n\t\t" << " Ð”Ð»Ñ ÑƒÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ NumPad: " << " 2  -  Up " << " 4  -  Left " << " 6  -  Right " << " 8  -  Down \n";
 
 	cout << VERTICAL_SHIFT;
 	for (int i = 12; i >= 0; i -= 4)
@@ -63,7 +63,7 @@ void Chek(string field[])
 
 	if (game_over)
 	{
-		cout << " Ïîçäðàâëÿåì! Âû ñïðàâèëèñü ñ çàäà÷åé! " << endl;
+		cout << " ÐŸÐ¾Ð·Ð´Ñ€Ð°Ð²Ð»ÑÐµÐ¼! Ð’Ñ‹ ÑÐ¿Ñ€Ð°Ð²Ð¸Ð»Ð¸ÑÑŒ Ñ Ð·Ð°Ð´Ð°Ñ‡ÐµÐ¹! " << endl;
 		return;
 	}
 
@@ -72,12 +72,12 @@ void Chek(string field[])
 
 void Move(string field[])
 {
-	char key;  //Îæèäàåò íàæàòèå êëàâèøè è âîçâðàùàåò
+	char key;  //ÐžÐ¶Ð¸Ð´Ð°ÐµÑ‚ Ð½Ð°Ð¶Ð°Ñ‚Ð¸Ðµ ÐºÐ»Ð°Ð²Ð¸ÑˆÐ¸ Ð¸ Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÑ‚
 	do
 	{
 		key = _getch();
 		if (key == 27)return;
-		if (key != '2' && key != '4' && key != '6' && key != '8') cout << "\aÂû èñïîëüçóåòå íå òå êëàâèøè!\n";
+		if (key != '2' && key != '4' && key != '6' && key != '8') cout << "\aÐ’Ñ‹ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚Ðµ Ð½Ðµ Ñ‚Ðµ ÐºÐ»Ð°Ð²Ð¸ÑˆÐ¸!\n";
 
 	} while (key != '2' && key != '4' && key != '6' && key != '8');
 
