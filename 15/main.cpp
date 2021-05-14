@@ -31,7 +31,7 @@ void PrintField(string field[])
 {
 	system("CLS");
 
-	cout << "\n\t\t" << " Для управления используйте NumPad: " << " 2  -  Up " << " 4  -  Left " << " 6  -  Right " << " 8  -  Down \n";
+	//cout << "\n\t\t" << " Для управления используйте NumPad: " << " 2  -  Up " << " 4  -  Left " << " 6  -  Right " << " 8  -  Down \n";
 
 	cout << VERTICAL_SHIFT;
 	for (int i = 12; i >= 0; i -= 4)
@@ -77,22 +77,22 @@ void Move(string field[])
 	{
 		key = _getch();
 		if (key == 27)return;
-		if (key != '2' && key != '4' && key != '6' && key != '8') cout << "\aВы используете не те клавиши!\n";
+		if (key != 80 && key != 75 && key != 77 && key != 72) cout; //<< "Вы используете не те клавиши!\n"
 
-	} while (key != '2' && key != '4' && key != '6' && key != '8');
+	} while (key != 80 && key != 75 && key != 77 && key != 72);
 
 	switch (key)
 	{
-	case '2':
+	case 80:
 		DownArrow(field);
 		break;
-	case '4':
+	case 75:
 		LeftArrow(field);
 		break;
-	case '6':
+	case 77:
 		RightArrow(field);
 		break;
-	case '8':
+	case 72:
 		UpArrow(field);
 		break;
 	}
@@ -105,9 +105,9 @@ void DownArrow(string field[])
 	{
 		if (field[i] == "  ")
 		{
-			if (i != 0 && i != 1 && i != 2 && i != 3)
+			if (i != 12 && i != 13 && i != 14 && i != 15)
 			{
-				swap(field[i], field[i - 4]);
+				swap(field[i], field[i + 4]);
 				break;
 			}
 			else
@@ -120,28 +120,6 @@ void DownArrow(string field[])
 	PrintField(field);
 }
 void LeftArrow(string field[])
-{
-	int size = 16;
-	for (int i = 0; i < size; i++)
-	{
-		if (field[i] == "  ")
-		{
-			if (i != 0 && i != 4 && i != 8 && i != 12)
-			{
-				swap(field[i], field[i - 1]);
-				break;
-			}
-			else
-			{
-				cout << "\a";
-				break;
-			}
-		}
-	}
-	PrintField(field);
-}
-
-void RightArrow(string field[])
 {
 	int size = 16;
 	for (int i = 0; i < size; i++)
@@ -163,6 +141,28 @@ void RightArrow(string field[])
 	PrintField(field);
 }
 
+void RightArrow(string field[])
+{
+	int size = 16;
+	for (int i = 0; i < size; i++)
+	{
+		if (field[i] == "  ")
+		{
+			if (i != 0 && i != 4 && i != 8 && i != 12)
+			{
+				swap(field[i], field[i - 1]);
+				break;
+			}
+			else
+			{
+				cout << "\a";
+				break;
+			}
+		}
+	}
+	PrintField(field);
+}
+
 void UpArrow(string field[])
 {
 	int size = 16;
@@ -170,9 +170,9 @@ void UpArrow(string field[])
 	{
 		if (field[i] == "  ")
 		{
-			if (i != 12 && i != 13 && i != 14 && i != 15)
+			if (i != 0 && i != 1 && i != 2 && i != 3)
 			{
-				swap(field[i], field[i + 4]);
+				swap(field[i], field[i - 4]);
 				break;
 			}
 			else
